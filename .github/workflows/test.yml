@@ -1,2 +1,11 @@
-name: run-notebook
-uses: yaananth/run-notebook@v1
+- name: run-notebook
+  # You may pin to the exact commit or the version.
+  # uses: yaananth/run-notebook@0c7f93ef82d068f6a4bd27213e227ba796476170
+  uses: yaananth/run-notebook@v1
+  with:
+    # Path to notebook with extension that should be executed
+    notebook: # optional, default is 
+    # Path to parameters file with extension, contents should be json
+    params: # optional, default is {}
+    # If True, will hide inputs in notebook
+    isReport: # optional
