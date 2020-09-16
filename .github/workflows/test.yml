@@ -4,7 +4,7 @@
   uses: yaananth/run-notebook@v1
   with:
     # Path to notebook with extension that should be executed
-    notebook: papermill_example.ipynb
+    notebook: "papermill_example.ipynb"
     # Path to parameters file with extension, contents should be json
     params: # optional, default is {}
     # If True, will hide inputs in notebook
