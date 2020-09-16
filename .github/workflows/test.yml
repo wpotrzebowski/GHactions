@@ -16,7 +16,7 @@ jobs:
         GITHUB: ${{ toJson(github) }}
       with:
         notebook: "papermill_example.ipynb"
-        params: "PATHTOPARAMS.json"
+        #params: "PATHTOPARAMS.json"
         isReport: False
         poll: True
     - uses: actions/upload-artifact@master
