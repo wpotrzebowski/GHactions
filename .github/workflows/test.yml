@@ -10,8 +10,9 @@ jobs:
     strategy:
       matrix:
         os: [ubuntu-latest]
-    if: ${{ contains(github.event.pull_request.labels.*.name, 'nightly-build') && startsWith(matrix.os, 'ubuntu') }}
+    
     steps:
     - name: List lables in PR
+      if: ${{ contains(github.event.pull_request.labels.*.name, 'nightly-build') && startsWith(matrix.os, 'ubuntu') }}
       run: | 
         echo "Nightly build label"
