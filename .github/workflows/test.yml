@@ -1,28 +1,14 @@
-name: Execute notebook
+name: Test labels
 
-on: [push]
+on: [push, pull_request]
 
 jobs:
-  run:
-    runs-on: ubuntu-latest
-    steps:
-    - uses: actions/checkout@v1
-    - name: Set up Python
-      uses: actions/setup-python@v1
-    - uses: yaananth/run-notebook@v1
-      env:
-        RUNNER: ${{ toJson(runner) }}
-        SECRETS: ${{ toJson(secrets) }}
-        GITHUB: ${{ toJson(github) }}
-      with:
-        notebook: "papermill_example.ipynb"
-        params: "paramaters.yaml"
-        isReport: False
-        poll: True
-    - uses: actions/upload-artifact@master
-      if: always()
-      with:
-        name: output
-        path: ${{ RUNNER.temp }}/nb-runner
-      env:
-        RUNNER: ${{ toJson(runner) }}
+  nightly_build:
+    runs-on: [ubuntu-latest]
+    - name: List lables in PR
+      run: | 
+        echo "Labels in PR"
+        y=${{ github.event.label.name }}
+        echo $y
+        x=${{ toJson(github.event.pull_request.labels.*.name) }}
+        echo $x
