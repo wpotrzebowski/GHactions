@@ -5,14 +5,5 @@ on:
 
 
 jobs:
-  nightly_build:
-    runs-on: ${{ matrix.os }}
-    strategy:
-      matrix:
-        os: [ubuntu-latest]
-    
-    steps:
-    - name: List lables in PR
-      if: ${{ contains(github.event.pull_request.labels.*.name, 'nightly-build') && startsWith(matrix.os, 'ubuntu') }}
-      run: | 
-        echo "Nightly build label"
+  reuse_worflow:
+  uses: ./.github/workflows/workflow-1.yml
