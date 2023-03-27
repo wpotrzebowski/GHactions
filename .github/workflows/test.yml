@@ -6,4 +6,4 @@ on:
 
 jobs:
   reuse_worflow:
-  uses: ./.github/workflows/workflow-1.yml
+    uses: ./.github/workflows/workflow-1.yml
