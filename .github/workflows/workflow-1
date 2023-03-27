@@ -1,0 +1,18 @@
+
+name: Test Reusable Worklow
+
+on: 
+  [push, pull_request, workflow_call]
+
+
+jobs:
+  nightly_build:
+    runs-on: ${{ matrix.os }}
+    strategy:
+      matrix:
+        os: [ubuntu-latest]
+    
+    steps:
+    - name: Reusable workflow
+      run: | 
+        echo "workflow test"
